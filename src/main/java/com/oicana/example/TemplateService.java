@@ -105,7 +105,7 @@ public class TemplateService {
         }
 
         long start = System.currentTimeMillis();
-        byte[] result = template.compile(jsonInputs, blobInputs, exportFormat, mode);
+        byte[] result = template.export(jsonInputs, blobInputs, exportFormat, mode);
         logger.info("Compiled '{}' in {}ms", templateId, System.currentTimeMillis() - start);
         return result;
     }

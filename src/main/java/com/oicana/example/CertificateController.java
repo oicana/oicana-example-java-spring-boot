@@ -64,7 +64,7 @@ public class CertificateController {
             long start = System.currentTimeMillis();
             String jsonValue = objectMapper.writeValueAsString(request);
             Map<String, String> jsonInputs = Map.of("certificate", jsonValue);
-            byte[] pdf = template.compile(jsonInputs, Map.of(), ExportFormat.pdf(), CompilationMode.PRODUCTION);
+            byte[] pdf = template.export(jsonInputs, Map.of(), ExportFormat.pdf(), CompilationMode.PRODUCTION);
             logger.info("Certificate compiled in {}ms", System.currentTimeMillis() - start);
 
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss"));
