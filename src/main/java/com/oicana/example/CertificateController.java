@@ -1,6 +1,5 @@
 package com.oicana.example;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oicana.CompilationMode;
 import com.oicana.ExportFormat;
 import com.oicana.OicanaException;
@@ -19,6 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -77,7 +78,7 @@ public class CertificateController {
             logger.error("Failed to compile certificate: {}", e.getMessage());
             return ResponseEntity.badRequest()
                     .body(("{\"detail\":\"" + e.getMessage() + "\"}").getBytes());
-        } catch (Exception e) {
+        } catch (JacksonException e) {
             logger.error("Failed to create certificate: {}", e.getMessage());
             return ResponseEntity.internalServerError().build();
         }

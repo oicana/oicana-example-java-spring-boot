@@ -1,9 +1,9 @@
 package com.oicana.example;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.oicana.BlobInput;
 import com.oicana.CompilationMode;
 import com.oicana.ExportFormat;
+import com.oicana.OicanaException;
 import com.oicana.Template;
 import com.oicana.example.dto.BlobInputDto;
 import com.oicana.example.dto.CompilationPayload;
@@ -64,7 +64,7 @@ public class TemplateService {
                 Template template = new Template(templateBytes);
                 templateCache.put(templateId, template);
                 logger.info("Warmed up {} v{} in {}ms", templateId, version, System.currentTimeMillis() - start);
-            } catch (Exception e) {
+            } catch (IOException | OicanaException e) {
                 logger.error("Failed to warm up template {} v{}: {}", templateId, version, e.getMessage());
             }
         }
