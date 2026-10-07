@@ -28,12 +28,12 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.1.1")
-    implementation("com.oicana:oicana:0.9.0-rc.5")
+    implementation("com.oicana:oicana:0.9.0")
     // Since this is an example project, we add all native implementations.
     // In your project, only add what you need.
-    runtimeOnly("com.oicana:oicana-linux-x86_64:0.9.0-rc.5")
-    runtimeOnly("com.oicana:oicana-linux-aarch64:0.9.0-rc.5")
-    runtimeOnly("com.oicana:oicana-macos-x86_64:0.9.0-rc.5")
-    runtimeOnly("com.oicana:oicana-macos-aarch64:0.9.0-rc.5")
-    runtimeOnly("com.oicana:oicana-windows-x86_64:0.9.0-rc.5")
+    runtimeOnly("com.oicana:oicana-linux-x86_64:0.9.0")
+    runtimeOnly("com.oicana:oicana-linux-aarch64:0.9.0")
+    runtimeOnly("com.oicana:oicana-macos-x86_64:0.9.0")
+    runtimeOnly("com.oicana:oicana-macos-aarch64:0.9.0")
+    runtimeOnly("com.oicana:oicana-windows-x86_64:0.9.0")
 }
